@@ -12,6 +12,7 @@ const myArrayOfGenre = ["all", ...myCategories];
 function Show_books() {
   const { openModal } = useGlobalContext();
   const [bookList, setBookList] = useState(book_set);
+  const arrOfitem = [];
 
   const filterBooksByGenre = (category) => {
     console.log("myCategory value", category);
@@ -23,6 +24,16 @@ function Show_books() {
 
   const [numberOfItemsInCart, setNumberOfItemsInCart] = useState(0);
   const [selectedCartList, setSelectedCartList] = useState([]);
+
+  selectedCartList.map((book)=> {
+    arrOfitem.push(book.price)
+  })
+ 
+  let sum = arrOfitem.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue;
+  },0);
+  console.log("The sum of price item in show cart is:",sum)
+
 
   return (
     <div className="book-item">
@@ -87,8 +98,10 @@ function Show_books() {
         })}
       </div>
       <Show_selected_carts
+      sum ={sum}
         setNumberOfItem={setNumberOfItemsInCart}
         selectedCartList={selectedCartList}
+        setSelectedCartList={setSelectedCartList}
       />
     </div>
   );

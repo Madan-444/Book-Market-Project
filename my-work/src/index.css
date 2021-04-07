@@ -409,3 +409,32 @@ Responsive ness
 .horizontal-line-2 {
   border-top: 0.1rem solid black;
 }
+/* Grand total value styling  */
+.grand-total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -40px;
+}
+.grand-total-h3 {
+  font-size: 1.5rem;
+  margin-left: 70px;
+  color: rgb(54, 71, 223);
+}
+.grand-total-clearcart {
+  border: 0.05rem solid rgb(168, 16, 16);
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: rgb(226, 198, 198);
+  text-align: center;
+  border-radius: 0.3rem;
+  color: rgb(54, 71, 223);
+  padding: 5px;
+}
+.grand-total-clearcart:hover {
+  background-color: var*var(--clr-grey-8);
+}
+.grand-total-value {
+  margin-right: 70px;
+  font-size: 1.5rem;
+  color: rgb(54, 71, 223);
+}

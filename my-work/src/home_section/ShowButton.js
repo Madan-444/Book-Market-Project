@@ -13,22 +13,28 @@ function ShowButton({
   const [cartValue, setCartValue] = useState(0);
 
   const handleButtton = () => {
-    let myListToCart = {
-      id: id,
-      name: name,
-      stock: stock,
-      cartValue: cartValue,
-      price: price * cartValue,
-      setCartValue: setCartValue,
-    };
-
-    setSelectedCartList([...selectedCartList, myListToCart]);
-    if (numberOfItemsInCart > 4) {
-      setSelectedCartList([...selectedCartList]);
-      alert("You have reach maximun books.");
+    if(cartValue!==0){
+      let myListToCart = {
+        id: id,
+        name: name,
+        stock: stock,
+        cartValue: cartValue,
+        price: price * cartValue,
+        setCartValue: setCartValue,
+      };
+  
+      setSelectedCartList([...selectedCartList, myListToCart]);
+      if (numberOfItemsInCart > 4) {
+        setSelectedCartList([...selectedCartList]);
+        alert("You have reach maximun books.");
+      }
+  
+      setCartValue(0);
+    } else {
+      alert("Please specify number of books first.")
+      setSelectedCartList([])
     }
-
-    setCartValue(0);
+   
     // console.log("book name",cartItem.name)
   };
 
@@ -57,7 +63,7 @@ function ShowButton({
         </div>
       </div>
       <div className="container-add-to-cart-btn">
-        {cartValue <= stock ? (
+        {cartValue <= stock? (
           <button className="add-to-cart-button" onClick={handleButtton}>
             Add to Cart
           </button>
