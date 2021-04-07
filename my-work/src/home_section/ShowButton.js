@@ -34,8 +34,7 @@ function ShowButton({
       alert("Please specify number of books first.")
       setSelectedCartList([])
     }
-   
-    // console.log("book name",cartItem.name)
+
   };
 
   return (
